@@ -19,3 +19,23 @@
   animation: spinClockwise 30s linear infinite;
   transform-origin: 50px 50px;
 }
+
+/* Starfield animations */
+@keyframes starFlicker {
+  0%, 100% { opacity: 0.3; }
+  25% { opacity: 0.7; }
+  50% { opacity: 0.85; }
+  75% { opacity: 0.5; }
+}
+
+@keyframes starFall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Star animation variants (for staggered effect) */
+.star-flicker-1 { animation: starFlicker 4s ease-in-out infinite; }
+.star-flicker-2 { animation: starFlicker 5s ease-in-out infinite 0.5s; }
+.star-flicker-3 { animation: starFlicker 6s ease-in-out infinite 1s; }
+.star-flicker-4 { animation: starFlicker 4.5s ease-in-out infinite 1.5s; }
+.star-flicker-5 { animation: starFlicker 5.5s ease-in-out infinite 2s; }

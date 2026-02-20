@@ -1,5 +1,6 @@
 import Axis from "./components/ui/Axis";
 import HeroFrame from "./components/hero/HeroFrame";
+import StarfieldBackground from "./components/ui/StarfieldBackground";
 import Pillars from "./sections/Pillars/Pillars";
 import { COLORS } from "./constants/colors";
 
@@ -21,6 +22,9 @@ export default function App() {
         overflow: "hidden",
       }}
     >
+      {/* Animated starfield background */}
+      <StarfieldBackground />
+
       {/* Global axes */}
       <Axis type="horizontal" />
       <Axis type="vertical" />
