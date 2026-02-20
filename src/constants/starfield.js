@@ -6,21 +6,32 @@
 export const STARFIELD_CONFIG = {
   // Static star settings (flickering in place)
   flickerDuration: '3s',        // How long one flicker cycle takes
-  starColor: '#ffffff',         // White stars
-  starSizeSmall: 2,             // Small stars (2px)
-  starSizeLarge: 3,             // Large stars (3px)
+  starColors: {
+    white: '#ffffff',           // Most stars
+    blueWhite: '#d4e8ff',      // Hot stars
+    warmWhite: '#ffe9d0',      // Cooler stars
+  },
+  starSizes: [1, 1.5, 2, 2.5, 3, 4], // Varied sizes
   blurAmount: '1px',            // Subtle blur for glow
   opacityMin: 0.1,              // Minimum opacity when flickering (10%)
   opacityMax: 1.0,              // Maximum opacity when flickering (100%)
 
-  // Shooting star settings
-  shootingStarColor: '#fff',    // White shooting stars
-  shootingStarOpacity: 0.7,     // 70% opacity
-  shootingStarWidth: '1px',     // Thin trail
-  shootingStarLength: '200px',  // Length of the trail (much longer)
-  shootingStarDuration: '2s',   // How long each shooting star takes (slower)
-  shootingStarGap: '0.4s',      // Gap between stars in a sequence
-  sequencePause: '0.8s',        // Pause between sequences
+  // Milky Way band
+  milkyWayAngle: 45,            // Diagonal band angle
+  milkyWayDensity: 2.5,         // Stars are 2.5x denser in the band
+
+  // Nebula colors - vibrant electric look
+  nebulaPurple: 'rgba(140, 82, 255, 0.35)',      // Bright purple
+  nebulaMagenta: 'rgba(200, 50, 255, 0.3)',      // Electric magenta
+  nebulaBlue: 'rgba(82, 140, 255, 0.25)',        // Bright blue
+  nebulaPink: 'rgba(255, 100, 180, 0.28)',       // Hot pink
+  nebulaDeepPurple: 'rgba(120, 40, 200, 0.32)',  // Deep purple
+  nebulaLavender: 'rgba(180, 120, 255, 0.25)',   // Lavender
+
+  // Horizon glow - stronger pink/orange
+  horizonColor: 'rgba(255, 80, 140, 0.3)',
+  horizonSecondary: 'rgba(255, 140, 100, 0.2)',
+  horizonHeight: '35%',
 };
 
 /**
