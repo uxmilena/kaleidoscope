@@ -1,0 +1,5 @@
+/**
+ * Main stylesheet - imports modular CSS files
+ */
+@import './styles/reset.css';
+@import './styles/animations.css';

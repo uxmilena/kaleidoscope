@@ -1,0 +1,21 @@
+/**
+ * Keyframe animations for Kaleidoscope UI
+ */
+
+/* Energy field sheen movement animation */
+@keyframes sheenMove {
+  0%   { transform: translate(-3%, -2%) rotate(-6deg); }
+  50%  { transform: translate(3%, 2%) rotate(6deg); }
+  100% { transform: translate(-3%, -2%) rotate(-6deg); }
+}
+
+/* Circular text rotation */
+@keyframes spinClockwise {
+  from { transform: rotate(-90deg); }
+  to { transform: rotate(270deg); }
+}
+
+.spinClockwise {
+  animation: spinClockwise 30s linear infinite;
+  transform-origin: 50px 50px;
+}
