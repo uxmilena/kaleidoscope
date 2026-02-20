@@ -1,4 +1,4 @@
-import "./pillars.css";
+import "./Pillars.css";
 
 export default function Pillars() {
   return (
