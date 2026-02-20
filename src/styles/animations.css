@@ -21,21 +21,109 @@
 }
 
 /* Starfield animations */
-@keyframes starFlicker {
-  0%, 100% { opacity: 0.3; }
-  25% { opacity: 0.7; }
-  50% { opacity: 0.85; }
-  75% { opacity: 0.5; }
-}
 
-@keyframes starFall {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
+/* Static stars - flicker in place */
+@keyframes starFlicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 1.0; }
 }
 
 /* Star animation variants (for staggered effect) */
-.star-flicker-1 { animation: starFlicker 4s ease-in-out infinite; }
-.star-flicker-2 { animation: starFlicker 5s ease-in-out infinite 0.5s; }
-.star-flicker-3 { animation: starFlicker 6s ease-in-out infinite 1s; }
-.star-flicker-4 { animation: starFlicker 4.5s ease-in-out infinite 1.5s; }
-.star-flicker-5 { animation: starFlicker 5.5s ease-in-out infinite 2s; }
+.star-flicker-1 { animation: starFlicker 3s ease-in-out infinite; }
+.star-flicker-2 { animation: starFlicker 3.5s ease-in-out infinite 0.5s; }
+.star-flicker-3 { animation: starFlicker 4s ease-in-out infinite 1s; }
+.star-flicker-4 { animation: starFlicker 3.2s ease-in-out infinite 1.5s; }
+.star-flicker-5 { animation: starFlicker 3.8s ease-in-out infinite 2s; }
+
+/* Shooting stars - multiple angle variations */
+
+/* Angle 110deg */
+@keyframes shootingStar110 {
+  0% { transform: translate(0, 0) rotate(110deg) scaleX(0); opacity: 0; }
+  5% { opacity: 0.7; transform: translate(-5vw, 14.3vw) rotate(110deg) scaleX(0.3); }
+  15% { transform: translate(-15vw, 42.9vw) rotate(110deg) scaleX(1); opacity: 0.7; }
+  85% { opacity: 0.7; transform: translate(-85vw, 243vw) rotate(110deg) scaleX(1); }
+  95% { opacity: 0.3; transform: translate(-95vw, 271vw) rotate(110deg) scaleX(0.8); }
+  100% { transform: translate(-100vw, 286vw) rotate(110deg) scaleX(0); opacity: 0; }
+}
+
+/* Angle 120deg */
+@keyframes shootingStar120 {
+  0% { transform: translate(0, 0) rotate(120deg) scaleX(0); opacity: 0; }
+  5% { opacity: 0.7; transform: translate(-5vw, 8.66vw) rotate(120deg) scaleX(0.3); }
+  15% { transform: translate(-15vw, 26vw) rotate(120deg) scaleX(1); opacity: 0.7; }
+  85% { opacity: 0.7; transform: translate(-85vw, 147vw) rotate(120deg) scaleX(1); }
+  95% { opacity: 0.3; transform: translate(-95vw, 164vw) rotate(120deg) scaleX(0.8); }
+  100% { transform: translate(-100vw, 173vw) rotate(120deg) scaleX(0); opacity: 0; }
+}
+
+/* Angle 130deg */
+@keyframes shootingStar130 {
+  0% { transform: translate(0, 0) rotate(130deg) scaleX(0); opacity: 0; }
+  5% { opacity: 0.7; transform: translate(-5vw, 6.12vw) rotate(130deg) scaleX(0.3); }
+  15% { transform: translate(-15vw, 18.4vw) rotate(130deg) scaleX(1); opacity: 0.7; }
+  85% { opacity: 0.7; transform: translate(-85vw, 104vw) rotate(130deg) scaleX(1); }
+  95% { opacity: 0.3; transform: translate(-95vw, 116vw) rotate(130deg) scaleX(0.8); }
+  100% { transform: translate(-100vw, 122vw) rotate(130deg) scaleX(0); opacity: 0; }
+}
+
+/* Angle 135deg */
+@keyframes shootingStar135 {
+  0% { transform: translate(0, 0) rotate(135deg) scaleX(0); opacity: 0; }
+  5% { opacity: 0.7; transform: translate(-5vw, 5vw) rotate(135deg) scaleX(0.3); }
+  15% { transform: translate(-15vw, 15vw) rotate(135deg) scaleX(1); opacity: 0.7; }
+  85% { opacity: 0.7; transform: translate(-85vw, 85vw) rotate(135deg) scaleX(1); }
+  95% { opacity: 0.3; transform: translate(-95vw, 95vw) rotate(135deg) scaleX(0.8); }
+  100% { transform: translate(-100vw, 100vw) rotate(135deg) scaleX(0); opacity: 0; }
+}
+
+/* Angle 140deg */
+@keyframes shootingStar140 {
+  0% { transform: translate(0, 0) rotate(140deg) scaleX(0); opacity: 0; }
+  5% { opacity: 0.7; transform: translate(-5vw, 4.19vw) rotate(140deg) scaleX(0.3); }
+  15% { transform: translate(-15vw, 12.6vw) rotate(140deg) scaleX(1); opacity: 0.7; }
+  85% { opacity: 0.7; transform: translate(-85vw, 71.2vw) rotate(140deg) scaleX(1); }
+  95% { opacity: 0.3; transform: translate(-95vw, 79.6vw) rotate(140deg) scaleX(0.8); }
+  100% { transform: translate(-100vw, 83.9vw) rotate(140deg) scaleX(0); opacity: 0; }
+}
+
+/* Shooting star sequence animations with varied angles */
+/* Sequence: 1-2-3 (pause 0.8s) 1-2 (pause 0.8s) 1-4 - slower, more dramatic */
+.shooting-star-1 {
+  animation: shootingStar120 2s ease-out infinite;
+  animation-delay: 0s;
+}
+.shooting-star-2 {
+  animation: shootingStar135 2s ease-out infinite;
+  animation-delay: 0.4s;
+}
+.shooting-star-3 {
+  animation: shootingStar110 2s ease-out infinite;
+  animation-delay: 0.8s;
+}
+/* pause 0.8s, then next sequence */
+.shooting-star-4 {
+  animation: shootingStar130 2s ease-out infinite;
+  animation-delay: 3.6s;
+}
+.shooting-star-5 {
+  animation: shootingStar120 2s ease-out infinite;
+  animation-delay: 4s;
+}
+/* pause 0.8s, then next sequence */
+.shooting-star-6 {
+  animation: shootingStar120 2s ease-out infinite;
+  animation-delay: 6.8s;
+}
+.shooting-star-7 {
+  animation: shootingStar140 2s ease-out infinite;
+  animation-delay: 7.6s;
+}
+.shooting-star-8 {
+  animation: shootingStar120 2s ease-out infinite;
+  animation-delay: 8.4s;
+}
+.shooting-star-9 {
+  animation: shootingStar135 2s ease-out infinite;
+  animation-delay: 9.2s;
+}

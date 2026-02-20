@@ -4,16 +4,23 @@
  */
 
 export const STARFIELD_CONFIG = {
-  // Animation settings
-  flickerDuration: '4s',        // How long one flicker cycle takes
-  fallDuration: '80s',          // How long stars take to fall down the page
-  fallDistance: '100vh',        // How far stars travel
+  // Static star settings (flickering in place)
+  flickerDuration: '3s',        // How long one flicker cycle takes
+  starColor: '#ffffff',         // White stars
+  starSizeSmall: 2,             // Small stars (2px)
+  starSizeLarge: 3,             // Large stars (3px)
+  blurAmount: '1px',            // Subtle blur for glow
+  opacityMin: 0.1,              // Minimum opacity when flickering (10%)
+  opacityMax: 1.0,              // Maximum opacity when flickering (100%)
 
-  // Visual settings
-  starColor: '#1C0D3B',         // Purple-ish from design
-  blurAmount: '2px',            // Gaussian blur from SVG
-  opacityMin: 0.3,              // Minimum opacity when flickering
-  opacityMax: 0.85,             // Maximum opacity when flickering
+  // Shooting star settings
+  shootingStarColor: '#fff',    // White shooting stars
+  shootingStarOpacity: 0.7,     // 70% opacity
+  shootingStarWidth: '1px',     // Thin trail
+  shootingStarLength: '200px',  // Length of the trail (much longer)
+  shootingStarDuration: '2s',   // How long each shooting star takes (slower)
+  shootingStarGap: '0.4s',      // Gap between stars in a sequence
+  sequencePause: '0.8s',        // Pause between sequences
 };
 
 /**

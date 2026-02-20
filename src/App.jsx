@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Axis from "./components/ui/Axis";
 import HeroFrame from "./components/hero/HeroFrame";
 import StarfieldBackground from "./components/ui/StarfieldBackground";
+import StarToggle from "./components/ui/StarToggle";
 import Pillars from "./sections/Pillars/Pillars";
 import { COLORS } from "./constants/colors";
 
@@ -9,6 +11,8 @@ import { COLORS } from "./constants/colors";
  * Renders the full-screen background with global axes and hero frame
  */
 export default function App() {
+  const [showShootingStars, setShowShootingStars] = useState(true);
+
   return (
     <div
       style={{
@@ -23,7 +27,7 @@ export default function App() {
       }}
     >
       {/* Animated starfield background */}
-      <StarfieldBackground />
+      <StarfieldBackground showShootingStars={showShootingStars} />
 
       {/* Global axes */}
       <Axis type="horizontal" />
@@ -31,6 +35,9 @@ export default function App() {
 
       {/* Hero system frame */}
       <HeroFrame />
+
+      {/* Star toggle control */}
+      <StarToggle onToggle={setShowShootingStars} />
     </div>
   );
 }
