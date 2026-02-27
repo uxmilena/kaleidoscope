@@ -20,6 +20,49 @@
   transform-origin: 50px 50px;
 }
 
+/* Axis dot animations */
+@keyframes axisDotHorizontal {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes axisDotVertical {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.axis-dot-horizontal {
+  animation: axisDotHorizontal 8s ease-in-out infinite;
+}
+
+.axis-dot-vertical {
+  animation: axisDotVertical 8s ease-in-out infinite 4s;
+}
+
 /* Starfield animations */
 
 /* Static stars - flicker in place */
