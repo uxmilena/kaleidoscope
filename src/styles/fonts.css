@@ -1,0 +1,175 @@
+/**
+ * Custom font declarations
+ * At Quark - Modern, clean font family
+ * Metral - Display/headline font family
+ */
+
+/* At Quark - Variable (covers the full weight axis 100–900) */
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuarkVAR.woff2') format('woff2') tech('variations'),
+       url('../fonts/At Quark/AtQuarkVAR.woff') format('woff-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* At Quark - Air (Thin) */
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-Air.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-Air.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-AirItalic.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-AirItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* At Quark - Bold */
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-Bold.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-BoldItalic.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* At Quark - Black */
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-Black.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'At Quark';
+  src: url('../fonts/At Quark/AtQuark-BlackItalic.woff2') format('woff2'),
+       url('../fonts/At Quark/AtQuark-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Metral - Extra Light */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-ExtraLight-BF6594cc69782ad.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-ExtraLightOblique-BF6594cc69c5f98.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Metral - Light */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-Light-BF6594cc698f0c9.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metral - Regular */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-Regular-BF6594cc69bcc9f.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-RegularOblique-BF6594cc69caba3.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Metral - Medium */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-Medium-BF6594cc69b2547.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-MediumOblique-BF6594cc69bb607.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Metral - Bold */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-Bold-BF6594cc69546d6.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-BoldOblique-BF6594cc69b1457.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Metral - Extra Bold */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-ExtraBold-BF6594cc696e709.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metral - Black */
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-Black-BF6594cc68e15a1.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metral';
+  src: url('../fonts/Metral/MetralTrial-BlackOblique-BF6594cc69904af.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
