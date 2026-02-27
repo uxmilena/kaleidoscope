@@ -1,0 +1,456 @@
+/* ═══════════════════════════════════════════════════════════════
+   OurBigWhy — Section styles
+   Figma frame: 1944 × 2089 px  (node 600:1828)
+
+   All percentage values are derived from those pixel dimensions:
+     horizontal % = px / 1944
+     vertical   % = px / 2089
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Section shell ──────────────────────────────────────────── */
+
+.obw {
+  position: relative;
+  width: 100%;
+  background: #00031c;
+  overflow: hidden;
+  /*
+    Height tracks viewport width to preserve the Figma aspect ratio:
+    2089 / 1944 ≈ 1.0746  →  107.5 vw keeps circles in designed positions.
+  */
+  min-height: 107.5vw;
+  /*
+    z-index: 1 lifts the section above the fixed starfield (z-index: 0)
+    so the solid navy background covers it when the user scrolls here.
+  */
+  z-index: 1;
+}
+
+@media (min-width: 1921px) {
+  /* Cap at Figma native height once viewport exceeds the design width */
+  .obw { min-height: 2089px; }
+}
+
+
+/* ── Cinematic hero-to-section fade ─────────────────────────── */
+
+.obw__hero-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 10, 32, 0.95) 0%,
+    rgba(4, 7, 24, 0.55) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2; /* above axis (1), below everything else */
+}
+
+
+/* ── Vertical axis ───────────────────────────────────────────── */
+
+/*
+  Continues the hero section's vertical axis at the same viewport-centre
+  x-position (left: 50 %). This element is absolute (spans only this
+  section) while the hero's fixed axis overlays the full viewport.
+  Together they read as one unbroken line through both sections.
+*/
+.obw__axis-v {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  /*
+    Stops at the centre of the main cluster circle.
+    Figma: cluster top=902px, diameter=925px → centre Y=1364.5px / 2089px ≈ 65.3%
+  */
+  height: 65.3%;
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateX(-0.5px);
+  pointer-events: none;
+  z-index: 1; /* always behind all section elements */
+}
+
+
+/* Horizontal axis
+   Figma: "Axes" frame is 1920 × 1563 starting at section top.
+   Centre of that frame = 781.5 px / 2089 px ≈ 37.4 % from section top. */
+.obw__axis-h {
+  position: absolute;
+  top: 37.4%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-0.5px);
+  pointer-events: none;
+  z-index: 1; /* always behind all section elements */
+}
+
+
+/* ── Text content grid ───────────────────────────────────────── */
+
+.obw__content {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  column-gap: 4%;
+  /*
+    Top padding ≈ 5.4 % (Figma: content frame y=105 in 1944-px section).
+    Horizontal padding ≈ 6.7 % (Figma: content frame x=130 in 1944 px).
+  */
+  padding: 5.4% 6.7%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+
+/* Left column ─────────────────────────── */
+
+.obw__col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Eyebrow label */
+.obw__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Metral', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* Pink indicator dot matching hero edge markers */
+.obw__dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 80, 200, 0.95);
+  box-shadow: 0 0 8px rgba(255, 80, 200, 0.55);
+}
+
+/* Main heading */
+.obw__heading {
+  font-family: 'Metral', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2.75rem, 6.5vw, 8rem);
+  line-height: 0.92;
+  color: #e8235a;
+  text-transform: lowercase;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Left-column body text */
+.obw__blurb {
+  font-family: 'At Quark', sans-serif;
+  font-weight: 200;
+  font-size: clamp(0.875rem, 1.05vw, 1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 360px;
+}
+
+
+/* Right column ────────────────────────── */
+
+.obw__col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  /* Subtle optical nudge to align with the eyebrow baseline */
+  padding-top: 0.2rem;
+}
+
+.obw__para {
+  font-family: 'At Quark', sans-serif;
+  font-weight: 200;
+  font-size: clamp(0.8125rem, 0.95vw, 0.9375rem);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+/* Final CTA line — slightly brighter and bolder */
+.obw__para--cta {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+}
+
+
+/* ── Circles (positioned via Figma-derived % values) ─────────── */
+
+/* Shared base for all circular image containers */
+.obw__circ {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.obw__circ img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/*
+  Top-left circle
+  Figma: 427 × 427 at (82, 666) within 1944 × 2089 section
+*/
+.obw__circ--tl {
+  left: 4.2%;    /* 82   / 1944 */
+  top: 31.9%;    /* 666  / 2089 */
+  width: 22%;    /* 427  / 1944 */
+  aspect-ratio: 1;
+}
+
+.obw__circ--tl img {
+  filter: brightness(0.75) saturate(1.1);
+}
+
+/*
+  Top-right circle
+  Figma: 344 × 344 at (1406, 921)
+*/
+.obw__circ--tr {
+  left: 72.3%;   /* 1406 / 1944 */
+  top: 44.1%;    /* 921  / 2089 */
+  width: 17.7%;  /* 344  / 1944 */
+  aspect-ratio: 1;
+}
+
+.obw__circ--tr img {
+  filter: brightness(0.7) hue-rotate(20deg) saturate(1.2);
+}
+
+/*
+  Bottom-left circle
+  Figma: 268 × 268 at (233, 1501)
+*/
+.obw__circ--bl {
+  left: 12%;     /* 233  / 1944 */
+  top: 71.9%;    /* 1501 / 2089 */
+  width: 13.8%;  /* 268  / 1944 */
+  aspect-ratio: 1;
+}
+
+.obw__circ--bl img {
+  filter: brightness(0.65) hue-rotate(190deg) saturate(0.9);
+}
+
+/*
+  Bottom-right circle
+  Figma: 268 × 268 at (1578, 1597)
+*/
+.obw__circ--br {
+  left: 81.2%;   /* 1578 / 1944 */
+  top: 76.4%;    /* 1597 / 2089 */
+  width: 13.8%;  /* 268  / 1944 */
+  aspect-ratio: 1;
+}
+
+.obw__circ--br img {
+  filter: brightness(0.7) hue-rotate(280deg) saturate(1.1);
+}
+
+
+/* ── Main circle cluster ─────────────────────────────────────── */
+
+/*
+  The cluster container is sized to the outer ring (925 × 925 px equiv).
+  Everything inside is inset as a percentage of this container so the
+  three elements (outer ring, inner ring, photo) stay concentric as the
+  layout scales.
+
+  Figma outer ring: 925 × 925 at (509, 902)
+    left  = 509  / 1944 = 26.2 %
+    top   = 902  / 2089 = 43.2 %
+    width = 925  / 1944 = 47.6 %
+*/
+.obw__cluster {
+  position: absolute;
+  left: 26.2%;
+  top: 43.2%;
+  width: 47.6%;
+  aspect-ratio: 1;
+  z-index: 3; /* above axis (1) and fade (2), below text content (5) */
+}
+
+/* Shared ring base */
+.obw__ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Outer ring fills the full cluster container */
+.obw__ring--outer {
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/*
+  Inner ring: 814 px out of 925 px container = 88.0 %
+  → inset each side = (100% - 88%) / 2 = 6.0 %
+*/
+.obw__ring--inner {
+  inset: 6%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+/*
+  Main photo: 644 px out of 925 px = 69.6 %
+  → inset each side = (100% - 69.6%) / 2 = 15.2 %
+*/
+.obw__circ--main {
+  position: absolute;
+  inset: 15.2%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.obw__circ--main img {
+  filter: brightness(0.9) saturate(1.15);
+}
+
+
+/* ── Bottom orb ──────────────────────────────────────────────── */
+
+/*
+  Figma: instance 1383 × 1399 at (818, 1821) in 1944 × 2089 section.
+    left  = 818  / 1944 = 42.1 %  (left edge of orb bounding box)
+    top   = 1821 / 2089 = 87.2 %  (top edge — orb bleeds below section)
+    width = 1383 / 1944 = 71.1 %
+
+  The orb center-x sits at (818 + 691) / 1944 ≈ 77.7 % of section width,
+  slightly right of centre — matching the Figma placement exactly.
+  Its lower half extends past the section bottom into Programs territory,
+  giving the impression of emerging from below (GSAP grow-up effect ready).
+*/
+.obw__orb {
+  position: absolute;
+  left: 42.1%;
+  top: 87.2%;
+  width: 71.1%;
+  aspect-ratio: 1383 / 1399;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 28%,
+    #ff1860 0%,
+    #d40040 28%,
+    #880028 55%,
+    rgba(0, 3, 28, 0) 76%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive
+═══════════════════════════════════════════════════════════════ */
+
+/* Intermediate desktop — tighten proportions */
+@media (max-width: 1400px) {
+  .obw {
+    min-height: 115vw;
+  }
+}
+
+/* Tablet landscape */
+@media (max-width: 1200px) {
+  .obw {
+    min-height: 130vw;
+  }
+
+  .obw__blurb {
+    max-width: 100%;
+  }
+}
+
+/* Tablet portrait — stack columns, scale circles */
+@media (max-width: 1023px) {
+  .obw {
+    min-height: 170vw;
+  }
+
+  .obw__content {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    padding: 7% 5%;
+  }
+
+  .obw__col-left {
+    max-width: 540px;
+  }
+
+  /* Scale outer circles slightly smaller so they don't crowd */
+  .obw__circ--tl { width: 28%; }
+  .obw__circ--tr { width: 22%; }
+  .obw__circ--bl { width: 18%; }
+  .obw__circ--br { width: 18%; }
+  .obw__cluster  { width: 58%; left: 21%; }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .obw {
+    min-height: auto;
+    padding-bottom: 240px; /* room for orb bleed below content */
+  }
+
+  .obw__content {
+    padding: 10% 5%;
+  }
+
+  .obw__heading {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  /* Hide smaller scatter circles — too crowded at mobile scale */
+  .obw__circ--tr,
+  .obw__circ--bl,
+  .obw__circ--br {
+    display: none;
+  }
+
+  /* Reposition top-left below content */
+  .obw__circ--tl {
+    top: auto;
+    bottom: 38%;
+    left: 0;
+    width: 42%;
+  }
+
+  /* Main cluster anchored above the orb */
+  .obw__cluster {
+    left: 10%;
+    top: auto;
+    bottom: 10%;
+    width: 80%;
+  }
+
+  /* Orb repositioned to keep bleed effect */
+  .obw__orb {
+    left: 15%;
+    width: 90%;
+  }
+}
