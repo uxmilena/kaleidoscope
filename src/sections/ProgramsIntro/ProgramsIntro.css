@@ -162,52 +162,6 @@
 }
 
 
-/* ── Orb ─────────────────────────────────────────────────────── */
-
-/*
-  All values derived from the "Page Elements" frame analysis above.
-
-  The orb is a large gradient circle that:
-  - Sits on the RIGHT side of the section
-  - Bleeds ABOVE the section top (top: −29.5 %)
-  - Bleeds off the RIGHT edge (right overflow ~14.7 %, clipped)
-  - Aligns its BOTTOM edge exactly with the section bottom
-
-  GSAP ScrollTrigger setup notes (animation NOT added here):
-  - Use `transform-origin: center center` as the scale pivot
-  - The intended animation is a leftward expansion (scale up + move left)
-    that makes the orb grow into the first program section below
-  - `will-change: transform` ensures GPU compositing is primed
-  - Suggested GSAP target properties: scale, x (translate leftward)
-*/
-.pi__orb {
-  position: absolute;
-  left: 42.6%;    /* 829 px / 1944 px — Figma orb left edge */
-  top: -29.5%;    /* −319 px / 1080 px — bleeds above section */
-  width: 71.9%;   /* 1399 px / 1944 px — orb diameter */
-  aspect-ratio: 1;
-  border-radius: 50%;
-
-  /* Blue-to-pink radial gradient — Figma "blue to pink" orb */
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(80,  160, 255, 0.92) 0%,
-    rgba(40,  80,  220, 0.85) 18%,
-    rgba(110, 30,  200, 0.75) 38%,
-    rgba(200, 20,  140, 0.55) 58%,
-    rgba(232, 35,  90,  0.28) 72%,
-    transparent 85%
-  );
-
-  pointer-events: none;
-  z-index: 2; /* behind text (5), above axes (1) */
-
-  /* GSAP animation readiness */
-  will-change: transform, opacity;
-  transform-origin: center center;
-}
-
-
 /* ═══════════════════════════════════════════════════════════════
    Responsive
 ═══════════════════════════════════════════════════════════════ */

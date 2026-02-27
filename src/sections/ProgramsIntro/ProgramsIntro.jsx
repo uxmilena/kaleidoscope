@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import './ProgramsIntro.css';
 
 /**
@@ -7,19 +6,13 @@ import './ProgramsIntro.css';
  * Figma frame: "Programs Intro" (node 594:1603), 1944 × 1080 px.
  * "Designs with Variables" page.
  *
- * Layout is derived from the "Page Elements" horizontal-flex child frame:
- *   absoluteBoundingBox: x=1815, y=5394, w=2113.48, h=1398.76
- *   itemSpacing: 140 px
- *   → text block ≈ 574 px wide, orb diameter ≈ 1399 px
- *   → section-relative orb left edge: 42.6 %, top edge: −29.5 %
- *
- * orbRef is exposed for a future GSAP ScrollTrigger animation where the
- * orb expands leftward and transitions into the first program section.
+ * The orb has been promoted to App.jsx as a single shared element
+ * spanning the OurBigWhy / ProgramsIntro boundary.
+ * orbRef for GSAP ScrollTrigger lives on that shared element.
  *
  * TODO: Replace body paragraph text with final copy from Figma.
  */
 export default function ProgramsIntro() {
-  const orbRef = useRef(null);
 
   return (
     <section className="pi">
@@ -54,17 +47,6 @@ export default function ProgramsIntro() {
         </a>
 
       </div>
-
-      {/* ── Orb — right side, bleeds above and off the right edge ── */}
-      {/*
-        Positioned exactly from Figma Page Elements frame geometry.
-        Ready for GSAP ScrollTrigger: on scroll, this orb should
-        expand (scale) from its current right-anchored position
-        leftward, eventually filling or transitioning into the
-        first program section below.
-        transform-origin is set to its visual center for clean scaling.
-      */}
-      <div className="pi__orb" ref={orbRef} aria-hidden="true" />
 
     </section>
   );

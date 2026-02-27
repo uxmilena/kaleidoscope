@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import './OurBigWhy.css';
 
 /**
@@ -10,12 +9,12 @@ import './OurBigWhy.css';
  * All circle/cluster positions are derived from Figma absolute
  * coordinates, converted to percentages of the section dimensions.
  *
- * orbRef is exposed for GSAP ScrollTrigger animation in a parent layer.
+ * The bottom orb has been promoted to App.jsx as a single shared element
+ * that spans the OurBigWhy / ProgramsIntro boundary.
  *
  * TODO: Replace /nebula.png src values with actual event photography.
  */
 export default function OurBigWhy() {
-  const orbRef = useRef(null);
 
   return (
     <section className="obw">
@@ -108,10 +107,6 @@ export default function OurBigWhy() {
       <div className="obw__circ obw__circ--br" aria-hidden="true">
         <img src="/nebula.png" alt="" />
       </div>
-
-      {/* ── Bottom orb — teases Programs section below ─────── */}
-      {/* ref exposed for GSAP ScrollTrigger in parent */}
-      <div className="obw__orb" ref={orbRef} aria-hidden="true" />
 
     </section>
   );

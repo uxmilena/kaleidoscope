@@ -4,6 +4,7 @@ import StarfieldBackground from "./components/ui/StarfieldBackground";
 import OurBigWhy from "./sections/OurBigWhy/OurBigWhy";
 import ProgramsIntro from "./sections/ProgramsIntro/ProgramsIntro";
 import { COLORS } from "./constants/colors";
+import "./App.css";
 
 /**
  * Main App component
@@ -89,11 +90,16 @@ export default function App() {
         <HeroFrame />
       </div>
 
-      {/* ── Our Big Why ───────────────────────────────────── */}
-      <OurBigWhy />
-
-      {/* ── Programs Intro ────────────────────────────────── */}
-      <ProgramsIntro />
+      {/* ── Sections 2 & 3 — shared orb spans the boundary ── */}
+      <div className="sections-23">
+        <OurBigWhy />
+        <ProgramsIntro />
+        {/*
+          Single orb element straddling OurBigWhy and ProgramsIntro.
+          Attach orbRef here for GSAP ScrollTrigger when animating.
+        */}
+        <div className="sections-23__orb" aria-hidden="true" />
+      </div>
     </div>
   );
 }

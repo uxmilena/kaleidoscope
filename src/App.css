@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════════════════════
+   App-level layout
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ── Sections 2 & 3 wrapper ─────────────────────────────────── */
+
+/*
+  Wraps OurBigWhy and ProgramsIntro so the shared orb can be
+  positioned absolutely across both sections in one element.
+*/
+.sections-23 {
+  position: relative;
+}
+
+
+/* ── Shared orb — spans the OurBigWhy / ProgramsIntro boundary ─ */
+
+/*
+  One element replaces the two separate orbs that previously lived
+  at the bottom of OurBigWhy and the top of ProgramsIntro.
+
+  Vertical anchor:
+    OurBigWhy min-height  = 107.5 vw
+    Figma orb top (in OBW) = 87.2 % × 107.5 vw = 93.7 vw from wrapper top
+  At each breakpoint the top value is recalculated as
+    87.2 % × <new OurBigWhy min-height>.
+
+  z-index: 2 places the orb above both sibling sections (z-index: 1).
+  The gradient fades to transparent well before reaching the text
+  columns on the left, so no readable content is obscured.
+
+  orbRef for GSAP ScrollTrigger can be attached to this element.
+*/
+.sections-23__orb {
+  position: absolute;
+  left: 42.6%;      /* 829 px / 1944 px — matches Figma orb left edge  */
+  top: 93.7vw;      /* 87.2 % × 107.5 vw (OurBigWhy default min-height) */
+  width: 71.9%;     /* 1399 px / 1944 px — orb diameter                 */
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(80,  160, 255, 0.92) 0%,
+    rgba(40,  80,  220, 0.85) 18%,
+    rgba(110, 30,  200, 0.75) 38%,
+    rgba(200, 20,  140, 0.55) 58%,
+    rgba(232, 35,  90,  0.28) 72%,
+    transparent 85%
+  );
+
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Recalculate top as OurBigWhy grows at narrower viewports */
+
+@media (max-width: 1400px) {
+  .sections-23__orb {
+    top: 100.3vw; /* 87.2 % × 115 vw */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sections-23__orb {
+    top: 113.4vw; /* 87.2 % × 130 vw */
+  }
+}
+
+@media (max-width: 1023px) {
+  .sections-23__orb {
+    top: 148.2vw; /* 87.2 % × 170 vw */
+    left: 30%;
+    width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  /* OurBigWhy is auto-height at mobile — orb is hidden */
+  .sections-23__orb {
+    display: none;
+  }
+}
